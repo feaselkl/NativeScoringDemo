@@ -11,12 +11,16 @@ https://github.com/microsoft/mssql-docker/blob/master/linux/preview/examples/mss
 
 3.  Navigate to the directories you created when pulling the samples and build images.  If you brought them down to `C:\SourceCode\` then the commands would be:
 `cd C:\SourceCode\mssql-mlservices`
+
 `docker build -t mssql-mlservices .`
+
 `cd C:\SourceCode\mssql-polybase`
+
 `docker build -t mssql-polybase .`
 
 4.  Start up two Docker containers, one for each image.  You probably want to use a better password than the one I have here.
 `docker run -d -e MSSQL_PID=Developer -e ACCEPT_EULA=Y -e ACCEPT_EULA_ML=Y -e SA_PASSWORD=SomeBadPassword3, -p 51432:1433 mssql-mlservices`
+
 `docker run -d -e MSSQL_PID=Developer -e ACCEPT_EULA=Y -e ACCEPT_EULA_ML=Y -e SA_PASSWORD=SomeBadPassword3, -p 51433:1433 mssql-polybase`
 
 5.  Run the script labeled `A01 - Create Input Table.sql` on the SQL Server instance on port 51432.
