@@ -10,6 +10,7 @@ https://github.com/microsoft/mssql-docker/blob/master/linux/preview/examples/mss
 2.  Modify each Dockerfile example and change to deal with "mssql-server-preview" to "mssql-server-2019" in the `add-apt-repository` command.  Hopefully Microsoft will update these Dockerfiles at some point.
 
 3.  Navigate to the directories you created when pulling the samples and build images.  If you brought them down to `C:\SourceCode\` then the commands would be:
+
 `cd C:\SourceCode\mssql-mlservices`
 
 `docker build -t mssql-mlservices .`
@@ -19,6 +20,7 @@ https://github.com/microsoft/mssql-docker/blob/master/linux/preview/examples/mss
 `docker build -t mssql-polybase .`
 
 4.  Start up two Docker containers, one for each image.  You probably want to use a better password than the one I have here.
+
 `docker run -d -e MSSQL_PID=Developer -e ACCEPT_EULA=Y -e ACCEPT_EULA_ML=Y -e SA_PASSWORD=SomeBadPassword3, -p 51432:1433 mssql-mlservices`
 
 `docker run -d -e MSSQL_PID=Developer -e ACCEPT_EULA=Y -e ACCEPT_EULA_ML=Y -e SA_PASSWORD=SomeBadPassword3, -p 51433:1433 mssql-polybase`
